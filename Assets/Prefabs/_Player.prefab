@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bd9542f187819c94caceda11e613dc4e, type: 3}
       propertyPath: m_Name
-      value: T-Pose
+      value: Blake
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: bd9542f187819c94caceda11e613dc4e, type: 3}
       propertyPath: m_Controller
@@ -104,6 +104,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bd9542f187819c94caceda11e613dc4e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4045681441537834227}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bd9542f187819c94caceda11e613dc4e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2800096085910070008}
@@ -121,6 +124,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bd9542f187819c94caceda11e613dc4e, type: 3}
   m_PrefabInstance: {fileID: 4771251542106560990}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4045681441537834227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5690168586279511183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4f79c41db41b749ad5e1fce69f8e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &2800096085910070008
 CapsuleCollider:
   m_ObjectHideFlags: 0
