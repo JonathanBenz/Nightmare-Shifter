@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] float rotationSpeed = 100f;
     private bool hasControl; 
 
     Animator animator;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private void ProcessInput()
     {
         float movementInput = Input.GetAxis("Vertical");
+        float rotationInput = Input.GetAxis("Horizontal") * rotationSpeed;
 
         if(movementInput > 0)
         {
@@ -42,5 +44,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("walkBackward", false);
             animator.SetBool("idle", true);
         }
+        transform.Rotate(0, rotationInput * Time.deltaTime, 0);
     }
 }
