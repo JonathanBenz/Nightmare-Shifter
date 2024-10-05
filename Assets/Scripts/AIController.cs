@@ -1,18 +1,65 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AIController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float aggroRadius = 10f;
+    bool isAggro;
+    float distanceToPlayer;
+
+    public Action ZombieGroan;
+
+    GameObject player;
+    NavMeshAgent agent;
+    Animator animator;
+    ZombieSFXPlayer zombieSFX;
+    private void Awake()
     {
-        
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        zombieSFX = GetComponent<ZombieSFXPlayer>();
+    }
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        distanceToPlayer = Vector3.Distance(this.transform.position, player.transform.position);
+        if (distanceToPlayer < aggroRadius) isAggro = true;
+        if (isAggro)
+        {
+            if (!zombieSFX.PlayedSound) ZombieGroan.Invoke();
+            AggroBehavior();
+        }
+    }
+
+    public void AggroBehavior()
+    {
+        animator.SetTrigger("scream");
+        animator.SetBool("isAggro", true);
+
+        // If transitioning from scream or attack state, do not move
+        if(animator.IsInTransition(0))
+        {
+            return;
+        }
+        agent.speed = animator.velocity.magnitude;
+        agent.SetDestination(player.transform.position);
+        print(player.transform.position);
+
+        if (distanceToPlayer < agent.stoppingDistance) animator.SetTrigger("attack");
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, aggroRadius);
     }
 }

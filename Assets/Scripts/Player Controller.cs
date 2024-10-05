@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         ProcessInput();
+        print(transform.position);
     }
 
     private void ProcessInput()
