@@ -8,18 +8,17 @@ public class PlayerController : MonoBehaviour
     private bool hasControl; 
 
     Animator animator;
-    Rigidbody rb;
+    AudioSource audioSource;
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         ProcessInput();
-        print(transform.position);
     }
 
     private void ProcessInput()
@@ -46,5 +45,11 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("idle", true);
         }
         transform.Rotate(0, rotationInput * Time.deltaTime, 0);
+    }
+
+    public void PlayFootSteps()
+    {
+        audioSource.pitch = UnityEngine.Random.Range(0.35f, 0.65f);
+        audioSource.PlayOneShot(audioSource.clip);
     }
 }

@@ -35,14 +35,14 @@ public class AIController : MonoBehaviour
         if (distanceToPlayer < aggroRadius) isAggro = true;
         if (isAggro)
         {
-            if (!zombieSFX.PlayedSound) ZombieGroan.Invoke();
             AggroBehavior();
         }
     }
 
     public void AggroBehavior()
     {
-        animator.SetTrigger("scream");
+        if (!animator.GetBool("scream")) ZombieGroan.Invoke();
+        animator.SetBool("scream", true);
         animator.SetBool("isAggro", true);
 
         // If transitioning from scream or attack state, do not move
@@ -52,9 +52,11 @@ public class AIController : MonoBehaviour
         }
         agent.speed = animator.velocity.magnitude;
         agent.SetDestination(player.transform.position);
-        print(player.transform.position);
 
-        if (distanceToPlayer < agent.stoppingDistance) animator.SetTrigger("attack");
+        if (distanceToPlayer < agent.stoppingDistance)
+        {
+            animator.SetTrigger("attack");
+        }
     }
 
     private void OnDrawGizmos()

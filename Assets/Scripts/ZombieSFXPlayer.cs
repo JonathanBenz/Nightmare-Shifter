@@ -5,12 +5,13 @@ using System;
 
 public class ZombieSFXPlayer : MonoBehaviour
 {
-    private bool playedSound;
+    //private bool playedSound;
+    //private float timer;
 
     AudioSource audioSource;
     AIController enemyAgent;
 
-    public bool PlayedSound { get { return playedSound; } }
+    //public bool PlayedSound { get { return playedSound; } }
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -29,20 +30,25 @@ public class ZombieSFXPlayer : MonoBehaviour
 
     private void Update()
     {
-        if (playedSound)
+        /*if (playedSound)
         {
-            Invoke("ResetSoundTrigger", UnityEngine.Random.Range(6f, 10f));
-        }
+            ResetSoundTrigger();
+        }*/
     }
 
     public void PlayZombieSFX()
     {
-        audioSource.pitch = UnityEngine.Random.Range(0.95f, 1.10f);
-        audioSource.Play();
-        playedSound = true;
+        audioSource.pitch = UnityEngine.Random.Range(0.90f, 1.10f);
+        audioSource.PlayOneShot(audioSource.clip);
+        //playedSound = true;
     }
-    private void ResetSoundTrigger()
+    /*private void ResetSoundTrigger()
     {
-        playedSound = false;
-    }
+        timer += Time.deltaTime;
+        if(timer > UnityEngine.Random.Range(10f, 16f))
+        {
+            playedSound = false;
+            timer = 0f;
+        }
+    }*/
 }
