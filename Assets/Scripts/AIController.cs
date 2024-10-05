@@ -41,6 +41,7 @@ public class AIController : MonoBehaviour
 
     public void AggroBehavior()
     {
+        animator.ResetTrigger("attack");
         if (!animator.GetBool("scream")) ZombieGroan.Invoke();
         animator.SetBool("scream", true);
         animator.SetBool("isAggro", true);
@@ -53,7 +54,7 @@ public class AIController : MonoBehaviour
         agent.speed = animator.velocity.magnitude;
         agent.SetDestination(player.transform.position);
 
-        if (distanceToPlayer < agent.stoppingDistance)
+        if (distanceToPlayer < agent.stoppingDistance) // && Vector3.Angle(transform.InverseTransformDirection(transform.forward), player.transform.position) < 45)
         {
             animator.SetTrigger("attack");
         }

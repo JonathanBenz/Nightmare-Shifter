@@ -14,12 +14,12 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.6226415, g: 0.049928807, b: 0.049928807, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.5
+  m_FogDensity: 0.25
   m_LinearFogStart: 0
-  m_LinearFogEnd: 5
+  m_LinearFogEnd: 6
   m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientGroundColor: {r: 0, g: 0, b: 0, a: 1}
@@ -395,12 +395,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 773661189879870503, guid: 294e8cc1d7cb5b44da99cec329b4e7ef, type: 3}
       propertyPath: windVolume
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 773661189879870503, guid: 294e8cc1d7cb5b44da99cec329b4e7ef, type: 3}
       propertyPath: windAmbiance
       value: 
-      objectReference: {fileID: 8300000, guid: e723fc95b508d0647ae87aa92f7da474, type: 3}
+      objectReference: {fileID: 8300000, guid: b0e9f399328aa694a8694d56cc1f14e6, type: 3}
     - target: {fileID: 880706932958311727, guid: 294e8cc1d7cb5b44da99cec329b4e7ef, type: 3}
       propertyPath: m_Follow
       value: 
@@ -408,6 +408,22 @@ PrefabInstance:
     - target: {fileID: 3774286562469267646, guid: 294e8cc1d7cb5b44da99cec329b4e7ef, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823372864886845562, guid: 294e8cc1d7cb5b44da99cec329b4e7ef, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823372864886845562, guid: 294e8cc1d7cb5b44da99cec329b4e7ef, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.34118018
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823372864886845562, guid: 294e8cc1d7cb5b44da99cec329b4e7ef, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.34118018
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823372864886845562, guid: 294e8cc1d7cb5b44da99cec329b4e7ef, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.38679248
       objectReference: {fileID: 0}
     - target: {fileID: 4267521319076198879, guid: 294e8cc1d7cb5b44da99cec329b4e7ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -540,6 +556,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3456522337903555098, guid: 812a4ca9506cdc0428db6f9f47846592, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 99999
+      objectReference: {fileID: 0}
     - target: {fileID: 8168897037962037702, guid: 812a4ca9506cdc0428db6f9f47846592, type: 3}
       propertyPath: m_Name
       value: zombie
