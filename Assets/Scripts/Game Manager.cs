@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private GameManager instance;
+    private Transform playerTransform;
+
+    public Transform PlayerTransform { get { return playerTransform; } 
+                                       set { playerTransform = value; } }
 
     // Singleton
     private void Awake()
@@ -16,5 +20,14 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
+    }
+    public void Load(int index)
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(index);
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

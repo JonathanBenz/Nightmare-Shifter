@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] int hitPoints = 3;
     bool isDead;
+
+    UIManager deathUI;
 
     public bool IsDead { get { return isDead; } }
 
@@ -14,6 +17,7 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         audio = GetComponent<PlayerSFXPlayer>();
+        deathUI = FindObjectOfType<UIManager>();
     }
 
     public void LoseHealthPoint()
@@ -24,10 +28,11 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        // TODO: Death UI
         audio.PlayDeathSFX();
         audio.PlayBloodSplatterSFX();
         isDead = true;
         Time.timeScale = 0;
+        // Display UI Event
+        StartCoroutine(deathUI.DisplayDeathUI());
     }
 }

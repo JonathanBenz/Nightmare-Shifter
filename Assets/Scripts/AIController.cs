@@ -56,7 +56,7 @@ public class AIController : MonoBehaviour
         agent.speed = animator.velocity.magnitude;
         Pursue();
 
-        if (distanceToPlayer < agent.stoppingDistance) // && Vector3.Angle(transform.InverseTransformDirection(transform.forward), player.transform.position) < 45)
+        if (distanceToPlayer < agent.stoppingDistance) // && Vector3.Angle(transform.forward, player.transform.position) < 30)
         {
             animator.SetTrigger("attack");
         }
@@ -83,7 +83,7 @@ public class AIController : MonoBehaviour
     public void DealDamageToPlayerEvent()
     {
         RaycastHit[] hits;
-        hits = Physics.SphereCastAll(this.transform.position + transform.forward + transform.up, 0.5f, transform.forward, 1f);
+        hits = Physics.SphereCastAll(this.transform.position + transform.forward + transform.up, 0.6f, transform.forward, 1f);
 
         foreach(RaycastHit hit in hits)
         {

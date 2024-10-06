@@ -5,20 +5,26 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float rotationSpeed = 100f;
-    private bool hasControl; 
+    private bool hasControl = true; 
 
     Animator animator;
     AudioSource audioSource;
+    Health health;
     private void Awake()
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        health = GetComponent<Health>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ProcessInput();
+        if(health.IsDead)
+        {
+            hasControl = false;
+        }
+        if(hasControl) ProcessInput();
     }
 
     private void ProcessInput()
@@ -46,7 +52,6 @@ public class PlayerController : MonoBehaviour
         }
         transform.Rotate(0, rotationInput * Time.deltaTime, 0);
     }
-
     public void PlayFootSteps()
     {
         audioSource.pitch = UnityEngine.Random.Range(0.35f, 0.55f);
