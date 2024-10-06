@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayFootSteps()
     {
-        audioSource.pitch = UnityEngine.Random.Range(0.35f, 0.65f);
+        audioSource.pitch = UnityEngine.Random.Range(0.35f, 0.55f);
         audioSource.PlayOneShot(audioSource.clip);
     }
 }
