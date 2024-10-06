@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class NightmareShift : MonoBehaviour
 {
     [SerializeField] TMP_Text promptShiftText;
+    [SerializeField] Fader fader;
 
     private void Start()
     {
@@ -31,8 +32,8 @@ public class NightmareShift : MonoBehaviour
             OscillateOpacity();
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {
-                if(SceneManager.GetActiveScene().buildIndex == 1) SceneManager.LoadScene(2);
-                else if (SceneManager.GetActiveScene().buildIndex == 2) SceneManager.LoadScene(0);
+                if (SceneManager.GetActiveScene().buildIndex == 1) { StartCoroutine(fader.FadeRoutine(1f, fader.FadeDuration)); promptShiftText.enabled = false; Invoke("LoadNightmare", 1f); }
+                else if (SceneManager.GetActiveScene().buildIndex == 2) { StartCoroutine(fader.FadeRoutine(1f, fader.FadeDuration)); promptShiftText.enabled = false; Invoke("LoadMainMenu", 1f); }
             }
         }
     }
@@ -40,5 +41,14 @@ public class NightmareShift : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
             promptShiftText.enabled = false;
+    }
+    // This code def has to be refactored in the future. This is spaghetti right here.
+    private void LoadNightmare()
+    {
+        SceneManager.LoadScene(2);
+    }
+    private void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

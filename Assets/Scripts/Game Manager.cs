@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     private GameManager instance;
-    private Transform playerTransform;
-
-    public Transform PlayerTransform { get { return playerTransform; } 
-                                       set { playerTransform = value; } }
+    [SerializeField] GameObject credits;
 
     // Singleton
     private void Awake()
@@ -20,6 +18,7 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
+        if(credits != null) credits.SetActive(false);
     }
     public void Load(int index)
     {
@@ -29,5 +28,11 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ToggleCredits()
+    {
+        if(credits.activeInHierarchy) credits.SetActive(false);
+        else credits.SetActive(true);
     }
 }
