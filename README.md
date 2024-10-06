@@ -1,4 +1,5 @@
 Nightmare Shifter is my submission for the Granola.gg x IGM 2024 gamejam submission! 
+This game was made given a 36 hour time limit!
 
 Controls: WASD (movement), Shift (nightmare shifting). 
 
@@ -27,3 +28,5 @@ Text Font Credits:
 - Upheaval by Brian Kent --- https://www.dafont.com/upheaval.font -- License: Freeware
 
 Enjoy!
+
+Web-Build: https://jonathanbenz.github.io/Nightmare-Shifter/
