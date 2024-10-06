@@ -24,6 +24,6 @@ Sound Effects and Music Credits:
 - Splattt.mp3 by SlykMrByches -- https://freesound.org/s/55234/ -- License: Creative Commons 0
 
 Text Font Credits: 
-- Upheaval by Brian Kent 
+- Upheaval by Brian Kent --- https://www.dafont.com/upheaval.font -- License: Freeware
 
 Enjoy!
