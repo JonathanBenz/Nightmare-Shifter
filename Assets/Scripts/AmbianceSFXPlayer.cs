@@ -20,14 +20,14 @@ public class AmbianceSFXPlayer : MonoBehaviour
     private void Start()
     {
         // If regular scene
-        if(SceneManager.GetActiveScene().buildIndex == 0)
+        if(SceneManager.GetActiveScene().buildIndex == 1)
         {
             audioSource.clip = windAmbiance;
             audioSource.volume = windVolume;
             audioSource.Play();
         }
         // If nightmare scene
-        else if(SceneManager.GetActiveScene().buildIndex == 1)
+        else if(SceneManager.GetActiveScene().buildIndex == 2)
         {
             audioSource.clip = nightmareAmbiance;
             audioSource.volume = nightmareVolume;

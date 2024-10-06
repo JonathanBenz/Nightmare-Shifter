@@ -23,12 +23,14 @@ public class ZombieSFXPlayer : MonoBehaviour
 
     private void OnEnable()
     {
-        enemyAgent.ZombieGroan += PlayZombieSFX;
+        if(enemyAgent != null)
+            enemyAgent.ZombieGroan += PlayZombieSFX;
     }
 
     private void OnDisable()
     {
-        enemyAgent.ZombieGroan -= PlayZombieSFX;
+        if (enemyAgent != null)
+            enemyAgent.ZombieGroan -= PlayZombieSFX;
     }
 
     public void PlayZombieSFX()
